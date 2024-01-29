@@ -1,3 +1,4 @@
+// @ts-ignore  
 import { configureClientSIWE } from "connectkit-next-siwe";
 
 export const siweClient = configureClientSIWE({
