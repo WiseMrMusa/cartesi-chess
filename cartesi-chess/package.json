@@ -8,7 +8,6 @@
     "preview": "vocs preview"
   },
   "dependencies": {
-    "connectkit-next-siwe": "^0.2.0",
     "react": "latest",
     "react-dom": "latest",
     "vocs": "latest"
