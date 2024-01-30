@@ -9,10 +9,8 @@ export default function Home() {
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
     >
-      Hello World
-      <>
+      <h1>Play chess like your life depends on it</h1>
       <ConnectKitButton />
-      </>
     </main>
   );
 }

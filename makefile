@@ -1,5 +1,5 @@
 start-frontend:
-	cd chess && bun run dev
+	cd chess-frontend && bun run dev
 
 start-backend:
 	cd chess-backend && sunodo build && sunodo run

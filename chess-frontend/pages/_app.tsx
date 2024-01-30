@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { WagmiConfig, createConfig } from "wagmi";
 import { ConnectKitProvider, ConnectKitButton, getDefaultConfig } from "connectkit";
 import { siweClient } from '../lib/utils/siweClient';
+import { foundry } from "viem/chains";
 
 
 
@@ -13,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         // Required API Keys
         alchemyId: process.env.ALCHEMY_ID, // or infuraId
         walletConnectProjectId: process.env.WALLETCONNECT_PROJECT_ID?? "",
+        chains: [foundry],
         
         // Required
         appName: "Your App Name",
@@ -35,28 +37,3 @@ export default function App({ Component, pageProps }: AppProps) {
       </WagmiConfig>
     );
   }
-//   const App = () => {
-//   return (
-//     <WagmiConfig config={config}>
-//       <ConnectKitProvider>
-//         /* Your App */
-//         <ConnectKitButton />
-//       </ConnectKitProvider>
-//     </WagmiConfig>
-//   );
-// };
-
-// const MyApp: AppType<{ session: Session | null; }> = ({
-//   Component,
-//   pageProps: { ...pageProps },
-// }) => {
-//   return (
-//     <WagmiConfig client={client}>
-//       <siweClient.Provider>
-//         <ConnectKitProvider>
-//           <Component {...pageProps} />
-//         </ConnectKitProvider>
-//       </siweClient.Provider>
-//     </WagmiConfig>
-//   );
-// };
