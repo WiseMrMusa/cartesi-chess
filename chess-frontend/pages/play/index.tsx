@@ -4,7 +4,7 @@ export default function Home() {
     return (
         <Layout>
             <div>
-                Hello World
+                This will contain the logic for playing game
             </div>
         </Layout>
     )

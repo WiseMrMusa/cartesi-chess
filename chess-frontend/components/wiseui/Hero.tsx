@@ -2,10 +2,14 @@ import Image from 'next/image';
 
 import React from 'react';
 import { Container } from '../container';
+import { Button } from '../ui/button';
+import Link from 'next/link';
+import { Logo } from './Logo';
 
 export function Hero() {
     return (
         <Container className="pt-20 pb-16 text-center lg:pt-32">
+            <Logo className="h-12 mx-auto mb-12" />
             <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl text-balance">
                 Play {' '}
                 <span className="relative whitespace-nowrap text-primary">
@@ -24,20 +28,25 @@ export function Hero() {
             <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700 text-balance">
                 MEF is an on-chain provable chess platform built on the Cartesi, leveraging its off-chain computation capabilities.
             </p>
-            <div className="mt-10 flex justify-center space-x-6">
-                {/* <ButtonLink href="/create">Create certificate</ButtonLink>
-                <ButtonLink
+            <div className="mt-10 flex justify-center space-x-2">
+                <Link href="./app">
+                    <Button>Play Game -&gt; </Button>
+                </Link>
+                <Link
                     href="https://youtu.be/XxSID43ElUQ"
+                >
+                </Link>
+                <Button
                     variant="outline"
                 >
                     <svg
                         aria-hidden="true"
-                        className="h-3 w-3 flex-none fill-blue-600 group-active:fill-current"
+                        className="h-3 w-3 flex-none fill-primary group-active:fill-current"
                     >
                         <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
                     </svg>
                     <span className="ml-3">Watch Demo</span>
-                </ButtonLink> */}
+                </Button>
             </div>
 
         </Container>
