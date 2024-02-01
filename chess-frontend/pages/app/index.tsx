@@ -4,7 +4,8 @@ export default function Home() {
     return (
         <Layout>
             <div>
-                Hello World
+                - Buying of token
+                - Token Portal 
             </div>
         </Layout>
     )

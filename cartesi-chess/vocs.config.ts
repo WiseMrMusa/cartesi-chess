@@ -16,6 +16,10 @@ export default defineConfig({
       link: '/cartesi'
     },
     {
+      text: "Tech Stack",
+      link: '/features'
+    },
+    {
       text: 'Example',
       link: '/example',
     },
