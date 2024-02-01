@@ -1,7 +1,6 @@
 import { Chessboard } from "react-chessboard";
 import { useState } from "react";
 import { Chess } from "chess.js";
-import { onPieceDrop } from '../../lib/chess/chesslogic';
 
 export default function PlayRandomMoveEngine() {
     const FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
