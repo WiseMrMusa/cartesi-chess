@@ -8,12 +8,20 @@ export default defineConfig({
       link: '/getting-started',
     },
     {
+      text: 'How to Play the Game',
+      link: '/play-game'
+    },
+    {
+      text: "How it's powered by Cartesi",
+      link: '/cartesi'
+    },
+    {
       text: 'Example',
       link: '/example',
     },
   ],
    topNav: [ 
-    { text: 'Guide & API', link: '/docs/getting-started', match: '/docs' }, 
+    { text: 'Play Game', link: 'https://cartesi-chess.vercel.app/', match: '/docs' }, 
     { text: 'Blog', link: '/blog' }, 
     { 
       text: 'version', 

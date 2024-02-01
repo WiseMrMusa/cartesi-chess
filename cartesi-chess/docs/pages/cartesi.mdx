@@ -1,0 +1,23 @@
+# How Cartesi powers Chess.mef 
+
+The Cartesi is a layer-2 Optimistic rollup execution layer with high computational power. The high computational power of Cartesi as an execution layer makes it suitable for building applications which would result in high gas fee on a traditional blockchain.
+
+The Cartesi Machine is an off-chain machine which is in sync with the on-chain activities through different concepts like:
+
+1. **Portal:** which allows the bridging of different token standard from the L1 blockchain to the cartesi machine 
+
+2. **Notice:** This is used to give a report of the side-effect of the L2 computation without relaying it back to the L1
+
+3. **Report:** This is used to send back the report of the side-effect of the L2 computation back to the L1 blockchain. This does not validate a state change in the L1
+
+4. **Invoice:** This is used to give an approval for a state change on the L1 as a result of the computation of the Cartesi Machine
+
+## We leveraged on some of these Features of the Cartesi Machine to:
+
+1. Bridge the MEF Token required to play the game from L1 to the backend using Portal 
+
+2. Issue invoices reedemable as NFts for players getting to a new Elo Milestone
+
+3. Issue invoices reedemable as NFTs on the L1 for the winners of tournaments 
+
+4. Leverage on the computational power of Cartesi Machine to calculate the Elo of each player after the game 

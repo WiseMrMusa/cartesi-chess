@@ -1,3 +1,38 @@
-# Welcome to Cartesi Chess
+# How to setup Chess.mef
 
-With Cartesi Chess, you build an onchain chess reputation with provable games powered by the Cartesi Machine 
+MEF Chess is an on-chain chess platform where you can play the chess game with your friends and build an on-chain reputation
+
+## Clone the repo locally 
+
+````bash
+    git clone https://github.com/WiseMrMusa/cartesi-chess 
+````
+
+## Start the Cartesi Backend
+
+To start the cartesi Backend, follow the cartesi Documentation on how to install sonudo on your machine then use the command below
+````bash
+    make start-backend
+````
+
+## Start the Server 
+
+The server is used for implementing the websocket which allows users to play the game in real-time without having to re-load the page
+
+````bash
+    make start-server
+````
+
+## Start the Frontend 
+
+To start the frontend of the application, you need to first install the packages for the first time (The recommended package manager is bun) using the command below
+
+````bash
+    cd cartesi-frontend && bun install
+````
+
+Then you can run the frontend using 
+
+````bash
+    make start-frontend
+````
