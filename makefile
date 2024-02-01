@@ -6,3 +6,6 @@ start-backend:
 
 start-docs:
 	cd cartesi-chess && bun run dev
+
+start-server:
+	cd chess-server && bun run dev

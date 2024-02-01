@@ -21,6 +21,8 @@
     "react-chessboard": "^4.4.0",
     "react-dom": "^18",
     "siwe": "^2.1.4",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "viem": "1.x",

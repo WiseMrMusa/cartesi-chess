@@ -1,6 +1,7 @@
 import { Chessboard } from "react-chessboard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Chess } from "chess.js";
+import { socket } from "@/lib/socket";
 
 export default function PlayRandomMoveEngine() {
     const FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
@@ -12,7 +13,7 @@ export default function PlayRandomMoveEngine() {
         const gameCopy = game;
         const result = gameCopy.move(move);
         setGame(new Chess(result.after));
-        console.log(game, result, gameCopy)
+        console.log(game, result, gameCopy);
         return result; // null if the move was illegal, the move object if the move was legal
     }
 
@@ -24,13 +25,13 @@ export default function PlayRandomMoveEngine() {
         makeAMove(possibleMoves[randomIndex]);
     }
 
-    function onDrop(sourceSquare: string, targetSquare : string, piece: string) {
+    function onDrop(sourceSquare: string, targetSquare: string, piece: string) {
         const move = makeAMove({
             from: sourceSquare,
             to: targetSquare,
             // promotion: "q", // always promote to a queen for example simplicity
         });
-        
+
         return true;
         // illegal move
         if (move === null) return false;
@@ -45,19 +46,49 @@ export const ChessGame = () => {
     const FEN = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
     const [game, setGame] = useState<Chess>(new Chess(FEN));
 
+    // useEffect(()=> {
+    //     socket.connect();
+    // }, [])
+    
+    useEffect(() => {
+        socket.connect();
+        console.log("Connected")
+        // Initiate `socket` connection
+
+        // socket.emit('join', {
+        //     name: 'Narendra Modi',
+        //     gameID: gameState.room
+        // }, (err, color) => {
+        //     console.log("color assigned after `join` event", color);
+        // });
+
+        socket.on('opponentMove', ({ from, to }) => {
+            console.log(`[opponent moved] :: from ${from}, to ${to}`);
+            makeAMove({ from, to });
+        });
+
+    });
+
     const onPieceDrop = (sourceSquare: string, targetSquare: string, piece: string) => {
-        makeAMove({from: sourceSquare, to: targetSquare})
+        makeAMove({ from: sourceSquare, to: targetSquare });
+        socket.emit('move', { from: sourceSquare, to: targetSquare });
         return true;
-    }
+    };
 
     const makeAMove = (move: string | { from: string; to: string; promotion?: string | undefined; }) => {
         const gameCopy = game;
         const result = gameCopy.move(move);
         setGame(new Chess(result.after));
         return result; // null if the move was illegal, the move object if the move was legal
-    }
+    };
 
-    return(
-        <Chessboard position={game.fen()} onPieceDrop={onPieceDrop} showBoardNotation boardOrientation="black" />
-    )
-}
+    return (
+
+        <Chessboard
+            position={game.fen()}
+            onPieceDrop={onPieceDrop}
+            showBoardNotation
+            boardOrientation="black"
+        />
+    );
+};
