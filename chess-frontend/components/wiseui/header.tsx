@@ -56,7 +56,7 @@ export const Header = forwardRef(function Header({ className }: {className?: str
                 <nav className="hidden md:block">
                     <ul role="list" className="flex items-center gap-8">
                         <TopLevelNavItem href="#">API</TopLevelNavItem>
-                        <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
+                        <TopLevelNavItem href="https://cartesi-chess-s3yk.vercel.app/">Documentation</TopLevelNavItem>
                         <TopLevelNavItem href="#">Support</TopLevelNavItem>
                     </ul>
                 </nav>
