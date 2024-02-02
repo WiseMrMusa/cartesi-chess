@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@safe-global/safe-singleton-factory": "^1.0.19"
+  }
+}

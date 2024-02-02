@@ -2,9 +2,6 @@
 /dist
 /node_modules
 src/schema.d.ts
-
-
-node_modules
 .env
 
 # Hardhat files
