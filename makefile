@@ -1,3 +1,5 @@
+source .env.local 
+
 start-frontend:
 	cd chess-frontend && bun run dev
 
