@@ -1,28 +1,27 @@
-const express = require('express')
-const http = require('http')
-const app = express()
-const server = http.createServer(app)
+import express from 'express';
+import http from 'http';
+import { Server as SocketIOServer } from 'socket.io';
 
-import { Server } from 'socket.io'
-const io = new Server(server, {
+const app = express();
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
   cors: {
     origin: '*',
   },
-})
+});
 
 io.on('connection', (socket) => {
-
   socket.on('join', () => {
-    socket.broadcast.emit('opponentMove', {  from: 'd2' , to: 'd4' })
-    console.log("Opponent Makes Move")
-  })
-  socket.on('move', ({ from, to}) => {
-    socket.broadcast.emit('opponentMove', {  from , to })
-    console.log("Opponent Makes Move")
-  })
-  
-})
+    socket.broadcast.emit('opponentMove', { from: 'd2', to: 'd4' });
+    console.log('Opponent Makes Move');
+  });
+
+  socket.on('move', ({ from, to }) => {
+    socket.broadcast.emit('opponentMove', { from, to });
+    console.log('Opponent Makes Move');
+  });
+});
 
 server.listen(3001, () => {
-  console.log('✔️ Server listening on port 3001')
-})
+  console.log('✔️ Server listening on port 3001');
+});
